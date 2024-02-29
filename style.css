@@ -1,0 +1,425 @@
+
+
+
+
+
+body,
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+
+}
+
+body {
+  background-color: #1c1c24;
+  overflow-x: hidden;
+}
+
+.title {
+  font-family: "8bitFont";
+  color: white;
+  font-size: 2.9rem;
+  padding-top: 25px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 150px;
+}
+
+@font-face {
+  font-family: "8bitFont";
+  src: url("8bitFont.ttf");
+}
+
+
+.pageWrap {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* new game btn */
+#newGame {
+
+  font-family: "8bitFont";
+  font-size: 1.5rem;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: #1c1c24;
+  width: 150px;
+  height: 45px;
+  border-radius: 3px;
+  -webkit-box-shadow: -4px 4px 7px 2px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: -4px 4px 7px 2px rgba(0, 0, 0, 0.59);
+  box-shadow: -4px 4px 7px 2px rgba(0, 0, 0, 0.59);
+  transition: 200ms;
+  z-index: 99;
+
+
+}
+
+#newGame:hover {
+  cursor: pointer;
+  color: #5999ff;
+}
+
+#newGame:active {
+  transform: scale(.94);
+  -webkit-box-shadow: -4px 4px 7px 2px rgba(0, 0, 0, 0);
+  -moz-box-shadow: -4px 4px 7px 2px rgba(0, 0, 0, 0);
+  box-shadow: -4px 4px 7px 2px rgba(0, 0, 0, 0);
+  background-color: #18181f;
+}
+
+/* end new game btn */
+
+
+/* dialog */
+
+.dialog {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #1c1c24;
+  color: #f5e9bf;
+  font-family: "8bitFont";
+  -webkit-box-shadow: -10px 11px 5px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: -10px 11px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: -5px 5px 8px 2px rgba(0, 0, 0, 0.35);
+
+
+}
+
+::backdrop {
+  background-color: #1c1c24;
+
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 380px;
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 2px;
+}
+
+input[type="text"] {
+  background-color: #1c1c24;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  font-family: "8bitFont";
+  padding: 3px;
+}
+
+#player1name {
+  border: 2px solid #f15b24;
+  color: #a44224;
+}
+
+#player1label {
+  font-size: 1.5rem;
+  color: #f15b24;
+
+}
+
+#player2name {
+  border: 2px solid #5793ef;
+  color: #313d6e;
+}
+
+#player2label {
+  font-size: 1.5rem;
+  color: #5793ef;
+
+}
+
+#startGame {
+  font-family: "8bitFont";
+  font-size: 1rem;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: #272734;
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  transition: 200ms;
+}
+
+
+#startGame:hover {
+  cursor: pointer;
+  color: #5999ff;
+}
+
+#startGame:active {
+  transform: scale(.94);
+  background-color: #18181f;
+}
+
+/* end dialog */
+
+.boardCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background-color: #1c1c24;
+  border: 2px solid #43435341;
+  font-size: 7.6rem;
+  transition: 450ms ease-out;
+  border-radius: 10px;
+  font-family: "8bitFont";
+}
+
+.boardCell:hover {
+  z-index: 3;
+  background-color: #424254;
+  cursor: pointer;
+  transition: 600ms;
+
+}
+
+.boardCell:active {
+  transform: scale(.9);
+  transition: 100ms;
+}
+
+.a:empty:hover::after {
+  content: "X";
+  -webkit-text-stroke: 1.6px #f15b24;
+  color: #00000000;
+}
+
+.b:empty:hover::after {
+  content: "O";
+  -webkit-text-stroke: 1.6px#5793ef;
+  color: #00000000;
+
+}
+
+.boardContainer {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 10px;
+  width: fit-content;
+  gap: 10px;
+  background-color: #0a0a0d;
+}
+
+
+.gameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 15px;
+  z-index: -1;
+}
+
+.gameStatus {
+  color: white;
+  font-family: "8bitFont";
+  font-size: 2.3rem;
+  padding-top: 10px;
+}
+
+.gameStatusContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.resetButton {
+  font-family: "8bitFont";
+  outline: 0;
+  border: 3px solid black;
+  font-size: 1rem;
+  width: 75px;
+  border-radius: 5px;
+  color: white;
+  background-color: #18181f;
+}
+
+.resetButton:hover {
+  cursor: pointer;
+  color: #5999ff;
+
+}
+
+.resetButton:active {
+  transform: scale(.94);
+  background-color: #18181f;
+
+}
+
+
+.newNewGameButton {
+  font-family: "8bitFont";
+  outline: 0;
+  border: 3px solid black;
+  font-size: 1rem;
+  width: 75px;
+  border-radius: 5px;
+  color: white;
+  background-color: #18181f;
+}
+
+.newNewGameButton:hover {
+  cursor: pointer;
+  color: #5999ff;
+
+}
+
+.newNewGameButton:active {
+  transform: scale(.94);
+  background-color: #18181f;
+
+}
+
+.infoContainer {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.howToWin {
+  font-family: "8bitFont";
+  width: 350px;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: normal;
+  line-height: 30px;
+  padding-bottom: 20px;
+
+
+}
+
+.player1Marker,
+.player2Marker {
+  font-family: "8bitFont";
+  font-size: 2.5rem;
+  color: white;
+  font-weight: normal;
+  gap: 15px;
+}
+
+.spanX,
+.spanO {
+  font-size: 4rem;
+}
+
+.spanX {
+  color: #f15b24;
+}
+
+.spanO {
+  color: #5999ff;
+}
+
+.infobtns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.infobtns>* {
+  width: 130px;
+  height: 40px;
+  font-size: 1.2rem;
+}
+
+.mainBoard{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: min-content;
+}
+@media screen and (max-width: 850px) {
+  .gameContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    
+  }
+.title{
+  padding-bottom: 0; 
+}
+  .infobtns {
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+  .player1Marker,
+  .player2Marker {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+  }
+}
+
+.spanPlayer1Name:empty::after {
+  content: 'Player 1';
+}
+
+.spanPlayer2Name:empty::after {
+  content: 'Player 2';
+}
+
+@media screen and (max-width: 440px) {
+  .boardCell {
+    width: 50px;
+    height: 50px;
+    font-size: 3.5rem;
+  }
+  .gameStatus{
+    font-size: 1.5rem;
+  }
+  .howToWin{
+    font-size: 1.2rem;
+    line-height: 17px;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .player1Marker,
+  .player2Marker {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+  }
+}

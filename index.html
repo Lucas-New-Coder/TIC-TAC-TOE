@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+  <h1 class="title">TIC-TAC-TOE</h1>
+  <div class="pageWrap">
+    <button type="button" name="newGame" id="newGame" value="New Game">New Game</button>
+  </div>
+
+  <dialog id="dialog" class="dialog">
+    <div class="formContainer">
+      <form action="">
+
+        <div class="cont">
+          <label for="player1" id="player1label">Player 1 name</label>
+          <input type="text" name="player1name" id="player1name">
+        </div>
+
+        <div class="cont">
+          <label for="player2" id="player2label">Player 2 name</label>
+          <input type="text" name="player2name" id="player2name">
+        </div>
+
+
+        <div class="cont"><input type="submit" name="startGame" id="startGame" value="Start"></div>
+
+      </form>
+    </div>
+  </dialog>
+  <div class="gameContainer">
+    <div class="mainBoard">
+      <div class="boardContainer" id="boardContainer"> </div>
+      <div class="gameStatusContainer"></div>
+    </div>
+    <div class="infoContainer">
+      <h2 class="howToWin"> Align three of your symbols on the grid to achieve victory.</h2>
+      <p class="player1Marker"> <span class="spanPlayer1Name"></span> Marker <span class="spanX">X</span></p>
+      <p class="player2Marker"> <span class="spanPlayer2Name"></span> Marker <span class="spanO ">O</span></p>
+      <div class="infobtns"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
